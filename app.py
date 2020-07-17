@@ -1,7 +1,6 @@
 import uvicorn
 from opsuite import Settings
 
-
 if __name__ == "__main__":
     uvicorn.run(
         "opsuite.server:app",

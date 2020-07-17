@@ -1,33 +1,33 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Jobs from '../views/afish/Jobs'
-import Executions from '../views/afish/Executions'
-import AuditLogs from '../views/afish/AuditLogs'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Jobs from "../views/afish/Jobs";
+import Executions from "../views/afish/Executions";
+import AuditLogs from "../views/afish/AuditLogs";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/afish/jobs',
-    name: 'jobs',
+    path: "/afish/jobs",
+    name: "jobs",
     component: Jobs
   },
   {
-    path: '/afish/executions',
-    name: 'executions',
+    path: "/afish/executions",
+    name: "executions",
     component: Executions
   },
   {
-    path: '/afish/auditlogs',
-    name: 'auditlogs',
+    path: "/afish/auditlogs",
+    name: "auditlogs",
     component: AuditLogs
-  },
-]
+  }
+];
 
 const router = new VueRouter({
-  base: '/ui',
-  mode: 'history',
+  base: "/ui",
+  mode: "history",
   routes
-})
+});
 
-export default router
+export default router;

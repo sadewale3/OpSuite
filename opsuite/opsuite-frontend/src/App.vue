@@ -1,10 +1,9 @@
 <template>
   <v-app id="inspire">
-
     <app-nav />
 
     <v-main>
-          <router-view />
+      <router-view />
     </v-main>
 
     <!-- <v-footer app>
@@ -14,12 +13,12 @@
 </template>
 
 <script>
-import AppNav from '@/components/AppNav';
+import AppNav from "@/components/AppNav";
 
 export default {
-  name: 'App',
+  name: "App",
   props: {
-    source: String,
+    source: String
   },
   components: {
     AppNav
