@@ -9,7 +9,7 @@ from opsuite.modules.afish.core.jobs import Job
 
 jobs_router = APIRouter()
 
-@jobs_router.get("/")
+@jobs_router.get("/getJobClasses")
 async def get_job_names():
     return [j.meta_info()
             for j in Job.__subclasses__()]

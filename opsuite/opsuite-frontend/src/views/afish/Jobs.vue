@@ -81,8 +81,8 @@ export default {
         align: "start",
         value: "name"
       },
-      { text: "Op", value: "op" },
-      { text: "Type", value: "type" },
+      { text: "Project", value: "project" },
+      { text: "Class", value: "class" },
       { text: "Creation Time", value: "ctime" },
       { text: "Status", value: "status" },
       { text: "Schedule", value: "schedule" },
@@ -93,12 +93,6 @@ export default {
     jobs: [],
     editedIndex: -1
   }),
-
-  computed: {
-    formTitle() {
-      return this.editedIndex === -1 ? "New Job" : "Edit Job";
-    }
-  },
 
   watch: {
     dialog(val) {
