@@ -1,12 +1,11 @@
-  
 from pathlib import Path
 
 from dotenv import load_dotenv
 from pydantic import ValidationError
 
-from .settings import OpSuiteSettings
+from .settings import AfishConfig, OpSuiteConfig
 
-__version__ = '0.1.0'
+__version__ = "0.1.0"
 
 
 settings_path = Path(__file__).parent
@@ -19,6 +18,7 @@ else:
 load_dotenv(_ENV_FILE)
 
 try:
-    Settings = OpSuiteSettings(_ENV_FILE)
+    OpsuiteSettings = OpSuiteConfig(_ENV_FILE)
+    AfishSettings = AfishConfig(_ENV_FILE)
 except ValidationError as e:
     exit(e)

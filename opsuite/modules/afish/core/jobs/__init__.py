@@ -1,9 +1,10 @@
 import pathlib
-from ._base import Job
-from inspect import isclass
-from pkgutil import iter_modules
-from pathlib import Path
 from importlib import import_module
+from inspect import isclass
+from pathlib import Path
+from pkgutil import iter_modules
+
+from ._base import Job
 
 # https://julienharbulot.com/python-dynamical-import.html
 package_dir = Path(__file__).resolve().parent
@@ -13,7 +14,7 @@ for (_, module_name, _) in iter_modules([package_dir]):
     for attribute_name in dir(module):
         attribute = getattr(module, attribute_name)
 
-        if isclass(attribute):            
+        if isclass(attribute):
             globals()[attribute_name] = attribute
 
 for j in Job.__subclasses__():

@@ -160,5 +160,7 @@ yarn-error.log*
 *.sln
 *.sw*
 
+.ionide
 # Opsuite stuff
 tests/
+opdb/

@@ -1,0 +1,57 @@
+version: "3"
+
+networks:
+  opsuite-network:
+    driver: "bridge"
+
+services:
+  psql:
+    image: "postgres"
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=opsuite,afish
+      - POSTGRES_USER=ops
+      - POSTGRES_PASSWORD=opsuite
+    volumes:
+      - ./opdb:/var/lib/postgresql/data
+      - ./init/pg-init-scripts:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+    networks:
+      - opsuite-network
+    tty: true
+
+  backend:
+    build: .
+    depends_on:
+      - psql
+    environment:
+      - APP_MODULE=opsuite.server:app
+      - PRE_START_PATH=/app/init/wait-for-pg.sh
+      - PORT=9009
+      - POSTGRES_PASSWORD=opsuite
+    ports:
+      - 9009:9009
+    networks:
+      - opsuite-network
+    tty: true
+
+  frontend:
+    build: ./opsuite-frontend
+    depends_on:
+      - backend
+    environment:
+      # - APP_MODULE=opsuite.server:app
+      # - PRE_START_PATH=/app/init/wait-for-pg.sh
+      - PORT=9008
+      - NODE_ENV=production
+    ports:
+      - 9008:80
+    networks:
+      - opsuite-network
+    tty: true
+
+volumes:
+  opdb:
+    driver: local
+  pg-init-scripts:
+    driver: local
