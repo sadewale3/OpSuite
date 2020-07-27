@@ -46,6 +46,10 @@ Running docker-compose will create a container for each part. The default userna
 - azure.ADUserPassCredential
 - azure.ADClientSecretCredential
 
+<div align="center">
+    <img src="docs/afish-jobs.png" width="800px" />
+    <img src="docs/afish-executions.png" width="800px" />
+</div>
 ---
 
 ## Built With
