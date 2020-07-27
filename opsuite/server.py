@@ -5,7 +5,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from . import __version__
-
 from .logs import InterceptHandler, format_record, logger
 from .modules import modules_app
 

@@ -1,5 +1,6 @@
-from ._base import Job
 import aiohttp
+
+from ._base import Job
 
 
 async def fetch(session, url):
